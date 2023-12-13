@@ -8,12 +8,6 @@ import {Ionicons} from '@expo/vector-icons'
 
 const Tab = createBottomTabNavigator();
 
-const TabIcons ={
-  RestaurantScreen: "md-restaurant",
-  Map:"md-map",
-  Settings:"md-settings"
-}
-
 const Map =()=> <Text>Map</Text>
 const Settings =()=> <Text>Settings</Text>
 
