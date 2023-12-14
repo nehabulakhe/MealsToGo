@@ -6,6 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {Ionicons} from '@expo/vector-icons'
 import {RestaurantContextProvider} from './src/services/restaurants/RestaurantContext'
+import {LocationContextProvider} from './src/services/location/LocationContext'
 
 const Tab = createBottomTabNavigator();
 
@@ -17,6 +18,7 @@ export default function App() {
   return (
     <>
     <ThemeProvider theme={theme}>
+      <LocationContextProvider>
       <RestaurantContextProvider>
     <NavigationContainer >
         <Tab.Navigator
@@ -48,6 +50,7 @@ export default function App() {
         </Tab.Navigator>
     </NavigationContainer>
     </RestaurantContextProvider>
+    </LocationContextProvider>
     </ThemeProvider>
     <StatusBar style="auto"/>
     </>

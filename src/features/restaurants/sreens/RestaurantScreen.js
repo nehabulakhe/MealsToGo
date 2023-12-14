@@ -4,6 +4,7 @@ import { Searchbar,ActivityIndicator } from 'react-native-paper';
 import RestaurantInfo from '../components/RestaurantInfoCard';
 import {RestaurantContext} from '../../../services/restaurants/RestaurantContext'
 import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { Search } from '../components/SearchComponent';
 
 export const RestaurantScreen = () => {
   
@@ -11,9 +12,7 @@ export const RestaurantScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.search}>
-        <Searchbar elevation={2} mode='bar'style={{ borderRadius:10}} placeholder='Search' />
-      </View>
+      <Search/>
       <View style={styles.list}>
       {isLoading && (
         <View style={{position:"absolute",top:"50%",left:"50%"}}>
