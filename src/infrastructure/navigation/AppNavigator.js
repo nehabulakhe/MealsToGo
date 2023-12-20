@@ -4,11 +4,11 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {Ionicons} from '@expo/vector-icons';
 import { RestaurantNavigator } from './RestaurantNavigator';
+import { MapScreen } from '../../features/map/screen/MapScreen';
 
 
 const Tab = createBottomTabNavigator();
 
-const Map =()=> <Text>Map</Text>
 const Settings =()=> <Text>Settings</Text>
 
 export const AppNavigator = () => {
@@ -38,7 +38,7 @@ export const AppNavigator = () => {
           })}
         >
           <Tab.Screen name="RestaurantScreen" component={RestaurantNavigator} />
-          <Tab.Screen name="Map" component={Map} />
+          <Tab.Screen name="Map" component={MapScreen} />
           <Tab.Screen name="Settings" component={Settings} />
         </Tab.Navigator>
     </NavigationContainer>

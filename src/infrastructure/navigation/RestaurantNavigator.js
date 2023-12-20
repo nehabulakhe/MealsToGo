@@ -10,13 +10,15 @@ export const RestaurantNavigator = () => {
   return (
     <RestaurantStack.Navigator
      screenOptions={{
-        headerMode:'none',
         ...TransitionPresets.ModalPresentationIOS,
      }}
     >
         <RestaurantStack.Screen
             name="RestaurantScreen"
             component={RestaurantScreen}
+            options={{
+              headerMode:'none',
+            }}
         />
         <RestaurantStack.Screen
             name="RestaurantDetail"
