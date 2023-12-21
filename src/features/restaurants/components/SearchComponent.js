@@ -8,7 +8,7 @@ const SearchContainer =styled.View`
     padding-right:${(props)=>props.theme.space[2]};
 `;
 
-export const SearchComponent=()=>{
+export const SearchComponent=({isFavoriteToggled,onFavoriteToggle})=>{
 
     const {keyword, search} = useContext(LocationContext)
     const [searchKeyword,setSearchKeyword]=useState(keyword);
@@ -20,6 +20,8 @@ export const SearchComponent=()=>{
     return(
     <SearchContainer>
         <Searchbar 
+        icon={isFavoriteToggled ? "heart" : "heart-outline"}
+        onIconPress={onFavoriteToggle}
         elevation={2} 
         mode='bar'
         style={{ borderRadius:10}} 
