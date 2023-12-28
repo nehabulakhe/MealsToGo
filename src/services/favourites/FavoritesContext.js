@@ -1,6 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react'
-import AsyncStorage from '@react-native-async-storage/async-storage'
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 export const FavoritesContext =createContext();
 
 export const FavoritesContextProvider = ({children}) => {
