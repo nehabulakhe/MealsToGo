@@ -5,10 +5,8 @@ import firebase from 'firebase/app';
 import 'firebase/auth'; // Import the necessary Firebase services you plan to use
 
 import { theme } from './src/infrastructure/theme';
-import { AppNavigator } from './src/infrastructure/navigation/AppNavigator';
-import { RestaurantContextProvider } from './src/services/restaurants/RestaurantContext';
-import { LocationContextProvider } from './src/services/location/LocationContext';
-import { FavoritesContextProvider } from './src/services/favourites/FavoritesContext';
+import { AuthenticationContextProvider } from './src/services/authentication/AuthenticationContext';
+import { Navigation } from './src/infrastructure/navigation';
 
 // Replace with your Firebase config
 const firebaseConfig = {
@@ -27,34 +25,12 @@ if (!firebase.apps.length) {
 
 export default function App() {
 
-  const [isAuthenticated,setIsAuthenticated]=useState(false);
-  
-  useEffect(()=>{
-    setTimeout(()=>{
-      firebase
-      .auth()
-      .signInWithEmailAndPassword("neha@gmail.com","neha123")
-      .then((user)=>{
-        console.log(user);
-        setIsAuthenticated(true);
-      }).catch((e)=>{
-        console.log(e);
-      });
-    },2000);
-  },[]);
-
-    if(!isAuthenticated) return null;
-
   return (
     <>
       <ThemeProvider theme={theme}>
-        <FavoritesContextProvider>
-          <LocationContextProvider>
-            <RestaurantContextProvider>
-              <AppNavigator />
-            </RestaurantContextProvider>
-          </LocationContextProvider>
-        </FavoritesContextProvider>
+        <AuthenticationContextProvider>
+              <Navigation />
+        </AuthenticationContextProvider>
       </ThemeProvider>
       <StatusBar style="auto" />
     </>
