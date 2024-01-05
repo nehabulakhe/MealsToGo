@@ -19,7 +19,7 @@ const AvatarContainer=styled.View`
     return(
         <SafeArea>
         <AvatarContainer>
-             <Avatar.Icon icon="human" size={150} backgroundColor="#2182BD" />
+             <Avatar.Icon icon="human" size={180} backgroundColor="#2182BD" />
              <Spacer position="top" size="large" >
                 <Text>{user.email}</Text>
              </Spacer>

@@ -1,6 +1,6 @@
 import {createStackNavigator,CardStyleInterpolators} from '@react-navigation/stack'
 import { SettingScreen } from '../../features/settings/screens/SettingScreen';
-import { Favorite } from '../../components/favorites/FavoriteComponent';
+import {FavoriteScreen} from '../../features/settings/screens/FavoriteScreen';
 
 const SettingStack = createStackNavigator();
 
@@ -8,7 +8,7 @@ export const SettingNavigator=({route,navigation})=>{
 
     return(
         <SettingStack.Navigator
-            headerMode="screen"
+            
             screenOptions={{
                 cardStyleInterpolator:CardStyleInterpolators.forHorizontalIOS,
             }}
@@ -22,7 +22,7 @@ export const SettingNavigator=({route,navigation})=>{
         />
         <SettingStack.Screen
             name="Favorite"
-            component={()=>null}
+            component={FavoriteScreen}
         />
         </SettingStack.Navigator>
     )

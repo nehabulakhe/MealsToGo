@@ -7,7 +7,7 @@ import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { SearchComponent } from '../components/SearchComponent';
 import {FavoritesBar} from '../../../components/favorites/FavoritesBar';
 import {FavoritesContext} from '../../../services/favourites/FavoritesContext'
-
+import {FadeInView} from '../../../components/animations/FadeAnimation'
 
 export const RestaurantScreen = ({navigation}) => {
   
@@ -16,6 +16,7 @@ export const RestaurantScreen = ({navigation}) => {
   const [isToggled,setIsToggled]=useState(false);
   
   return (
+   
     <SafeAreaView style={styles.container}>
       <SearchComponent 
       isFavoriteToggled={isToggled}
@@ -32,6 +33,7 @@ export const RestaurantScreen = ({navigation}) => {
         onNavigate={navigation.navigate}
       />
       )}
+      
       <FlatList
             data={restaurant}
             renderItem={({item})=>{
@@ -43,7 +45,9 @@ export const RestaurantScreen = ({navigation}) => {
                 })
                 }
                 >
+                <FadeInView>
                 <RestaurantInfo restaurant={item}/>
+                </FadeInView>
                 </TouchableOpacity>
               )
             } }
@@ -53,6 +57,7 @@ export const RestaurantScreen = ({navigation}) => {
       </View>
       
     </SafeAreaView>
+
   )
 }
 
